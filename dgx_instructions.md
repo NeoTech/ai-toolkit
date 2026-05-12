@@ -8,10 +8,10 @@ This guide will assume you have a fresh installation of DGX OS, and will guide y
 
 ### Installation instructions for DGX OS:
 
-**1) Get Python 3.11 (via UV**
+**1) Get Python 3.11 (via UV)**
 
 Install the latest version of uv:
-curl -LsSf https://astral.sh/uv/install.sh | sh
+`curl -LsSf https://astral.sh/uv/install.sh | sh`
 
 Activate UV
 ```
