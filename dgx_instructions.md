@@ -8,43 +8,29 @@ This guide will assume you have a fresh installation of DGX OS, and will guide y
 
 ### Installation instructions for DGX OS:
 
-**1) Get Python 3.11 (via miniconda)**
+**1) Get Python 3.11 (via UV**
 
-Install the latest version of miniconda:
-```
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh
-chmod u+x Miniconda3-latest-Linux-aarch64.sh
-./Miniconda3-latest-Linux-aarch64.sh
-```
+Install the latest version of uv:
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
-Restart your bash or ssh session. If miniconda was installed successfully, it will automatically load the 'base' environment by default. If you want to disable this behaviour, run:
+Activate UV
 ```
-conda config --set auto_activate_base false
+source ~/.bashrc
 ```
-
-Now you can create a Python 3.11 environment for ai-toolkit:
-```
-conda create --name ai-toolkit python=3.11
-```
-
-Then activate the environment with:
-
-```
-conda activate ai-toolkit
-```
-
 
 **2) Install PyTorch**
 
 ```
-pip3 install torch==2.9.1 torchvision==0.24.1 torchaudio==2.9.1 --index-url https://download.pytorch.org/whl/cu130
+uv pip install torch==2.9.1 torchvision==0.24.1 torchaudio==2.9.1 --index-url https://download.pytorch.org/whl/cu130
 ```
 
 
 **3) Install the remaining requirements (dgx_requirements.txt)**
 
 ```
-pip3 install -r dgx_requirements.txt
+uv pip install -r requirements.txt
+uv pip install -r requirements_base.txt
+uv pip install -r dgx_requirements.txt
 ```
 
 ### Running the UI on DGX OS:
